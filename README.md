@@ -34,20 +34,4 @@ Authentication
 .JWT
 .Cookies
 
-📂 Project Structure
-Batman_Webpage/
 
-│
-
-├── models/
-
-├── routes/
-
-├── views/
-
-├── public/
-│   ├── images/
-│   └── stylesheets/
-├── .env
-├── index.js
-└── package.json
