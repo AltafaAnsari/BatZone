@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Payment | Batman</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body class="bg-zinc-900 text-white min-h-screen">
+
+  <!-- PAGE CONTAINER -->
+  <div class="max-w-4xl mx-auto p-10">
+
+    <h1 class="text-3xl font-semibold mb-6 border-b border-zinc-700 pb-4">
+      Choose Payment Method
+    </h1>
+
+    <h3 class="font-semibold mb-2 pb-4">
+      Total Amount: <%= total %>
+    </h3>
+
+    <p class="text-zinc-400 mb-10">
+      Select a secure payment option to complete your order.
+    </p>
+
+    <!-- PAYMENT OPTIONS -->
+    <div class="space-y-6">
+
+      <!-- UPI -->
+      <div class="bg-zinc-800 border border-zinc-700 rounded-lg p-6 hover:border-blue-500 transition">
+        <div class="flex items-center justify-between">
+          <div>
+            <h3 class="text-xl font-medium">UPI</h3>
+            <p class="text-sm text-zinc-400 mt-1">
+              Pay using Google Pay, PhonePe, Paytm or any UPI app
+            </p>
+          </div>
+
+          <a 
+            href="/pay/upi" 
+            class="bg-blue-600 hover:bg-blue-700 transition px-5 py-2 rounded text-sm"
+          >
+            Pay via UPI
+          </a>
+        </div>
+      </div>
+
+      <!-- CASH ON DELIVERY -->
+      <div class="bg-zinc-800 border border-zinc-700 rounded-lg p-6 hover:border-green-500 transition">
+        <div class="flex items-center justify-between">
+          <div>
+            <h3 class="text-xl font-medium">Cash on Delivery</h3>
+            <p class="text-sm text-zinc-400 mt-1">
+              Pay when the product is delivered to your doorstep
+            </p>
+          </div>
+
+          <a 
+            href="/pay/cod" 
+            class="bg-green-600 hover:bg-green-700 transition px-5 py-2 rounded text-sm"
+          >
+            Choose COD
+          </a>
+        </div>
+      </div>
+
+      <!-- BANK TRANSFER -->
+      <div class="bg-zinc-800 border border-zinc-700 rounded-lg p-6 hover:border-purple-500 transition">
+        <div class="flex items-center justify-between">
+          <div>
+            <h3 class="text-xl font-medium">Bank Transfer</h3>
+            <p class="text-sm text-zinc-400 mt-1">
+              Transfer directly using NEFT / RTGS / IMPS
+            </p>
+          </div>
+
+          <a 
+            href="/pay/bank" 
+            class="bg-purple-600 hover:bg-purple-700 transition px-5 py-2 rounded text-sm"
+          >
+            Bank Transfer
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- BACK -->
+    <div class="mt-10">
+      <a 
+        href="/cart" 
+        class="text-sm text-zinc-400 hover:text-white transition"
+      >
+        ← Back to Cart
+      </a>
+    </div>
+
+  </div>
+
+</body>
+</html>

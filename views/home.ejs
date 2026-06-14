@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Batman | Home</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-black text-gray-200">
+
+<!-- Header -->
+<header class="border-b border-gray-800">
+  <nav class="max-w-7xl mx-auto flex items-center justify-between px-8 py-4">
+    <a class="text-xl font-semibold text-blue-500 tracking-wide" href="/afterlogin">
+    ⬅️  Back To Home
+    </a>
+       
+  </nav>
+</header>
+
+    <div class="p-10">
+       <h3 class="text-3xl mb-3"><span class="font-light">Hello</span>! <%= user.username %>👋</h3>
+       <h3>Now, you can access all our services.</h3>
+       </div>
+
+
+<!-- Hero -->
+<main class="max-w-7xl mx-auto px-8 py-15">
+  <div class="max-w-3xl">
+    <h2 class="text-5xl font-semibold text-white leading-tight mb-6">
+      Batman-World<br />
+      <span class="text-blue-500">Multiple-Resources</span>
+    </h2>
+
+    <p class="text-gray-400 text-lg mb-10">
+      We curate and deliver premium Batman novels, comics, and movies, built around authenticity, quality, and a commitment to the Dark Knight legacy.
+    </p>
+
+    <a
+      href="/services"
+      class="inline-block border border-blue-500 text-blue-500 px-6 py-3 text-sm uppercase tracking-wider hover:bg-blue-500 hover:text-black transition"
+    >
+      Explore Services
+    </a>
+  </div>
+</main>
+
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UPI Payment</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body class="bg-zinc-900 text-white min-h-screen flex items-center justify-center">
+
+  <div class="w-full max-w-md bg-zinc-950 border border-zinc-800 rounded-lg p-6">
+
+    <!-- Heading -->
+    <h1 class="text-2xl font-semibold text-blue-500 text-center mb-2">
+      Pay via UPI
+    </h1>
+    <p class="text-sm text-zinc-400 text-center mb-6">
+      Complete your payment securely using UPI
+    </p>
+
+    <!-- QR Section -->
+    <div class="flex flex-col items-center gap-3">
+      <div class="w-48 h-48 bg-white rounded-md flex items-center justify-center">
+        <!-- Replace src with your real QR -->
+        <img 
+          src="/images/upi-qr.png" 
+          alt="UPI QR Code" 
+          class="w-44 h-44 object-contain"
+        />
+      </div>
+      <p class="text-sm text-zinc-400">
+        Scan this QR using any UPI app
+      </p>
+    </div>
+
+    <!-- OR Divider -->
+    <div class="flex items-center my-6">
+      <div class="flex-1 h-px bg-zinc-700"></div>
+      <span class="px-3 text-sm text-zinc-400">OR</span>
+      <div class="flex-1 h-px bg-zinc-700"></div>
+    </div>
+
+    <!-- Manual UPI Details -->
+    <div class="bg-zinc-900 border border-zinc-800 rounded-md p-4 space-y-2">
+      <div class="flex justify-between text-sm">
+        <span class="text-zinc-400">UPI ID</span>
+        <span class="font-medium text-white">batman@upi</span>
+      </div>
+
+      <div class="flex justify-between text-sm">
+        <span class="text-zinc-400">Payee Name</span>
+        <span class="font-medium text-white">Batman Store</span>
+      </div>
+
+      <div class="flex justify-between text-sm">
+        <span class="text-zinc-400">Amount</span>
+        <span class="font-semibold text-blue-400">
+          ₹ <%= total %>
+        </span>
+      </div>
+    </div>
+
+    <!-- Footer Note -->
+    <p class="text-xs text-zinc-500 text-center mt-4">
+      After payment, your order will be processed automatically.
+    </p>
+
+  </div>
+
+</body>
+</html>

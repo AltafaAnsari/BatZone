@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Batman Webpage</title>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body> 
+
+  <!-- HEADER -->
+  <header class="header flex flex-col items-center">
+    <img class="logo  -translate-y-1/2 " src="/images/top_img.jpeg" class="logo" alt="Batman Logo">
+    <nav>
+      <ul class="nav-links flex gap-8 font-semibold">
+        <li><a href="/home">HOME</a></li>
+        <li><a href="/about">ABOUT</a></li>
+        <li><a href="/services">SERVICES</a></li>
+        <li><a href="/contact">CONTACT</a></li>
+        <li><a href="/cart">CART</a></li>
+      </ul>
+    </nav>
+
+    <div class="links">
+   <a class="bg-red-400 rounded-md px-3 py-2 text-sm mb-1 inline-block
+         transition-all duration-300 ease-in-out
+         hover:bg-red-500 hover:scale-105"  href="/logout">Logout</a>
+   </div>
+
+  </header>
+   
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <img src="/images/main_img.jpeg" class="hero-img" alt="Batman">
+    <div class="hero-text">
+      <h1>BATMAN</h1>
+      <p>The Dark Knight rises from the shadows to protect Gotham from chaos and fear.</p>
+    </div>
+  </section>
+
+  <!-- ABOUT SECTION -->
+  <section class="about">
+    <h2>SOMETHING ABOUT BATMAN</h2>
+    <p>
+      Batman is Gotham City's legendary protector, known for his intelligence,
+  determination, and unmatched sense of justice. Emerging from the shadows,
+  he fights crime without superpowers—relying on skill, technology, and fear
+  to keep the city safe.
+    </p>
+  </section>
+
+  <!-- TRILOGY SECTION -->
+  <section class="trilogy">
+    <h2>THE BATMAN TRIOLOGY</h2>
+
+
+<div class="card-section  "> 
+  
+<% cards.slice(0,3).forEach(card => { %>
+
+  <a href="/description/<%= card._id %>" class="block">
+      <div class="card  transition-transform duration-300 ease-out hover:-translate-y-2">
+        <img src="<%= card.image %>" alt="">
+        <h3><%= card.title %></h3>
+        <p><%= card.desc %></p>
+      </div>
+    <% }) %>
+  </a>
+
+</div>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>LINKS</p>
+    <div class="footer-links">
+      <a href="#">DC COMICS</a>
+      <a href="#">WIKIPEDIA</a>
+      <a href="#">MOVIE LIST</a>
+      <a href="#">IMDB</a>
+    </div>
+  </footer>
+
+</body>
+</html>
+
+
+

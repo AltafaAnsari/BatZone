@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body class="bg-black text-gray-200">
+
+<div class="min-h-screen flex flex-col">
+
+  <!-- Top Bar -->
+  <header class="border-b border-gray-800">
+    <div class="max-w-7xl mx-auto flex justify-between items-center px-8 py-4">
+      
+      <h1 class="text-lg font-semibold text-blue-500 tracking-wide">
+        BATMAN
+      </h1>
+
+      <a
+        href="/logout"
+        class="border border-red-500 text-red-500 px-4 py-2 text-sm uppercase hover:bg-red-500 hover:text-black transition"
+      >
+        Logout
+      </a>
+
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="flex-1 flex items-center">
+    <div class="max-w-4xl mx-auto px-8">
+
+      <h3 class="text-3xl font-semibold text-white mb-3">
+        <span class="font-light text-gray-400">Hello</span>,
+        <%= user.username %> 👋
+      </h3>
+
+      <p class="text-gray-400 mb-8">
+        You are now authenticated and can access all available services.
+      </p>
+
+      <a
+        href="/afterlogin"
+        class="inline-block border border-blue-500 text-blue-500 px-6 py-3 text-sm uppercase tracking-wide hover:bg-blue-500 hover:text-black transition"
+      >
+        Back to Home
+      </a>
+
+    </div>
+  </main>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cart | Batman</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body class="bg-zinc-900 text-white min-h-screen">
+
+  <!-- PAGE WRAPPER -->
+  <div class="max-w-7xl mx-auto p-10">
+
+    <h1 class="text-3xl font-semibold mb-8 border-b border-zinc-700 pb-4">
+      Your Cart
+    </h1>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+      <!-- CART ITEMS -->
+      <div class="lg:col-span-2 space-y-6">
+
+        <% if(cartItems.length === 0) { %>
+          <p class="text-zinc-400">Your cart is empty.</p>
+        <% } %>
+
+        <% cartItems.forEach(card => { %>
+          <div class="flex bg-zinc-800 rounded-lg overflow-hidden shadow-md">
+
+            <!-- IMAGE -->
+            <img 
+              src="<%= card.image %>" 
+              alt=""
+              class="w-40 h-40 object-cover"
+            />
+
+            <!-- DETAILS -->
+            <div class="flex-1 p-5 flex flex-col justify-between">
+              <div>
+                <h3 class="text-xl font-medium mb-2">
+                  <%= card.title %>
+                </h3>
+                <p class="text-zinc-400 text-sm">
+                  <%= card.desc %>
+                </p>
+              </div>
+               
+              <div class="flex items-center justify-between mt-4">
+                <span class="text-lg font-semibold text-blue-400">
+                  ₹ <%= card.price + 20 - card.discount %>
+                </span>
+
+
+                <div class="flex gap-3">
+
+  <a 
+    href="/buy/<%= card._id %>" 
+    class="bg-blue-600 hover:bg-blue-700 transition px-4 py-2 rounded text-sm"
+  >
+    Buy Now
+  </a>
+
+  <a 
+    href="/remove/<%= card._id %>" 
+    class="bg-red-600 hover:bg-red-700 transition px-4 py-2 rounded text-sm"
+  >
+    Remove
+  </a>
+
+</div>
+
+                
+              </div>
+            </div>
+
+          </div>
+        <% }) %>
+
+      </div>
+
+      <!-- SUMMARY -->
+      <div class="bg-zinc-800 rounded-lg p-6 h-fit shadow-md">
+
+        <h2 class="text-xl font-semibold mb-6 border-b border-zinc-700 pb-3">
+          Order Summary
+        </h2>
+
+        <div class="flex justify-between text-zinc-300 mb-4">
+          <span>Total Items</span>
+          <span><%= cartItems.length %></span>
+        </div>
+
+        <div class="flex justify-between text-lg font-semibold mb-6">
+          <span>Total Amount</span>
+          <span class="text-blue-400">₹ <%= total %></span>
+        </div>
+
+        <a 
+          href="/buy-all" 
+          class="block text-center bg-green-600 hover:bg-green-700 transition py-3 rounded font-medium"
+        >
+          Buy All
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</body>
+</html>

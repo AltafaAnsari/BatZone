@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Admin Panel</title>
+<link rel="stylesheet" href="/stylesheets/style1.css" />
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body>
+
+<div class="layout">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <h2 class="logo">Admin</h2>
+
+        <nav>
+            <a class="nav-link active" onclick="showPage('dashboard')">
+                <span>📊</span> Dashboard
+            </a>
+
+            <a class="nav-link" onclick="showPage('addCard')">
+                <span>➕</span> Add Card
+            </a>
+
+            <a class="nav-link" onclick="showPage('allCards')">
+                <span>📋</span> All Cards
+            </a>
+        </nav>
+    </aside>
+
+
+    <!-- Main Content -->
+    <main class="content">
+
+        <!-- Dashboard -->
+        <section id="dashboard" class="page active">
+            <h1>Admin Panel</h1>
+            <p>Welcome to Dashboard</p>
+        </section>
+
+
+        <!-- Add Card Page -->
+        <section id="addCard" class="page">
+            <h1>Add New Card</h1>
+
+            <form action="/add-card" method="POST" enctype="multipart/form-data" class="card-form">
+                <label>Image</label>
+                <input type="file" name="image" required />
+
+                <label>Title</label>
+                <input type="text"  name="title" required />
+                
+                <label>Price</label>
+                <input type="number"  name="price" required />
+                <label>Discount</label>
+                <input type="number"  name="discount" required />
+
+                <label>Description</label>
+                <textarea class="resize-none" name="desc" rows="4" required></textarea>
+
+                <button type="submit" class="submitBtn">Submit</button>
+            </form>
+
+            
+
+        </section>
+
+
+        <!-- All Cards Page -->
+        <section id="allCards" class="page">
+            <h1>Cards</h1>
+
+            <div class="card-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cardList">
+                        <!-- Cards will appear here -->
+                        <% if(cards.length > 0){ %>
+                        <% cards.forEach(card => { %>
+                           <tr>
+                            <th><%= card.title %></th>
+                            <th><%= card.desc %></th>
+                         </tr>
+                            <% }) %>
+                        <% } else { %>
+                                <tr>
+                                    <th>No cards yet!</th>
+                                </tr>
+                       <% } %>
+                        
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+
+</div>
+
+
+<script>
+/* PAGE SWITCHING */
+function showPage(pageId) {
+    document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
+    document.getElementById(pageId).classList.add("active");
+
+    document.querySelectorAll(".nav-link").forEach(n => n.classList.remove("active"));
+    event.target.classList.add("active");
+}
+
+
+/* CARD ADDING FUNCTION */
+document.getElementById("cardForm").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    let img = document.getElementById("imageInput").value;
+    let title = document.getElementById("titleInput").value;
+    let desc = document.getElementById("descInput").value;
+
+    let row = `
+        <tr>
+            <td><img src="${img}" class="tbl-img"></td>
+            <td>${title}</td>
+            <td>${desc}</td>
+        </tr>
+    `;
+
+    document.getElementById("cardList").innerHTML += row;
+
+    this.reset();
+    showPage('allCards');
+});
+</script>
+
+</body>
+</html>
