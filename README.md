@@ -36,10 +36,15 @@ Authentication
 
 📂 Project Structure
 Batman_Webpage/
+
 │
+
 ├── models/
+
 ├── routes/
+
 ├── views/
+
 ├── public/
 │   ├── images/
 │   └── stylesheets/
